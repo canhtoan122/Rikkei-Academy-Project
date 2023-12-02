@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 5</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <b><h1>Trang web bán hàng</h1></b>
+    <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Sản Phẩm</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên Hệ</a></li>
+    </ul>
+    <br>
+    <b><h1>Thông tin sản phẩm</h1></b>
+    <table>
+        <thead>
+            <tr>
+                <b><th>Tên sản phẩm</th></b>
+                <b><th>Mô tả</th></b>
+                <b><th>Giá</th></b>
+                <b><th>Số lượng</th></b>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Sản phẩm 1</td>
+            <td>Mô tả sản phẩm 1</td>
+            <td>100.000đ</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Sản phẩm 2</td>
+            <td>Mô tả sản phẩm 2</td>
+            <td>200.000đ</td>
+            <td>5</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Sản phẩm 3</td>
+                <td>Mô tả sản phẩm 3</td>
+                <td>300.000đ</td>
+                <td>3</td>
+            </tr>
+            </tfoot>
+    </table>
+    <br>
+    <form onsubmit="displayResult(event)">
+        <b><h1>Thông tin người dùng</h1></b>
+        <span>
+            <label htmlFor="name">Họ và tên:</label>
+            <input type="text" name="name" id="name"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="email">Email:</label>
+            <input type="text" name="email" id="email"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="phoneNumber">Số điện thoại:</label>
+            <input type="text" name="phoneNumber" id="phoneNumber"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="address">Địa chỉ:</label>
+            <input type="text" name="address" id="address"><br>
+        </span>
+        <br>
+        <button class="button">Đăng kí</button>
+        <p id="result"></p>
+    </form>
+    <script>
+        function displayResult(event) {
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const address = document.getElementById("address").value;
+
+            const resultMessage = `Tên: ${name}<br>Email: ${email}<br>Số điện thoại: ${phoneNumber}<br>Địa chỉ: ${address}`;
+
+            document.getElementById("result").innerHTML = resultMessage;
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

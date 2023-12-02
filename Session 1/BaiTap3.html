@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 3</title>
+</head>
+<body>
+    <form onsubmit="displayResult(event)">
+        <b><h1>Car Purchase Form</h1></b>
+        <span>
+            <label htmlFor="name">Name:</label>
+            <input type="text" name="name" id="name"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="email">Email:</label>
+            <input type="text" name="email" id="email"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="phoneNumber">Phone:</label>
+            <input type="text" name="phoneNumber" id="phoneNumber">
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="car">Choose a car:</label>
+            <select name="cars" id="cars">
+                <option value="model1">Model 1</option>
+                <option value="model2">Model 2</option>
+                <option value="model3">Model 3</option>
+                <option value="model4">Model 4</option>
+            </select>
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="color">Choose a color:</label>
+            <select name="colors" id="colors">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+            </select>
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="deliveryDate">Delivery Date:</label>
+            <input type="date" id="deliveryDate" name="deliveryDate"><br>
+        </span>
+        <br>
+        <button class="button">Đăng kí</button>
+        <p id="result"></p>
+    </form>
+    <script>
+        function displayResult(event) {
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const deliveryDate = document.getElementById("deliveryDate").value;
+            const cars = document.getElementById("cars");
+            const carsOption = cars.options[cars.selectedIndex];
+            const carsValue = carsOption.value;   
+            const colors = document.getElementById("colors");
+            const colorsOption = colors.options[colors.selectedIndex];
+            const colorsValue = colorsOption.value;
+
+            const resultMessage = `Tên: ${name}<br>Email: ${email}<br>Số điện thoại: ${phoneNumber}<br>Loại xe: ${carsValue}<br>Loại màu xe: ${colorsValue}<br>Ngày tháng năm: ${deliveryDate}`;
+
+            document.getElementById("result").innerHTML = resultMessage;
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

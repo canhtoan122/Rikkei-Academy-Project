@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập 2</title>
+</head>
+<body>
+    <form onsubmit="displayResult(event)">
+        <b><h1>Booking Form</h1></b>
+        <span>
+            <label htmlFor="name">Name:</label>
+            <input type="text" name="name" id="name"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="email">Email:</label>
+            <input type="text" name="email" id="email"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="phoneNumber">Phone:</label>
+            <input type="text" name="phoneNumber" id="phoneNumber">
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="date">Date:</label>
+            <input type="date" id="date" name="date">
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="time">Time:</label>
+            <input type="time" id="time" name="time"><br>
+        </span>
+        <br>
+        <button class="button">Đăng kí</button>
+        <p id="result"></p>
+    </form>
+    <script>
+        function displayResult(event) {
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            
+
+            const resultMessage = `Tên: ${name}<br>Email: ${email}<br>Số điện thoại: ${phoneNumber}<br>Ngày tháng năm: ${date}<br>Giờ: ${time}`;
+
+            document.getElementById("result").innerHTML = resultMessage;
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>
