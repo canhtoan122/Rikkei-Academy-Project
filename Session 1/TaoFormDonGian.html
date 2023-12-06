@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sở thích của bạn</title>
+    
+    <style>
+        .head{
+            text-align: center;
+            background-color: darkorange;
+        }
+        .name{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <i><b><h1>SỞ THÍCH CỦA BẠN</h1></b></i>
+    </div>
+    <form onsubmit="displayResult(event)">
+        <span>
+            <label htmlFor="name">Họ và tên</label>
+            <input type="text" name="name" id="name"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email"><br>
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="hobby">Sở Thích</label>
+            <br>
+            <input type="checkbox" id="sport" name="hobby">
+            <label for="sport">Thể thao</label>
+            <input type="checkbox" id="music" name="hobby">
+            <label for="music">Âm Nhạc</label>
+            <input type="checkbox" id="reading" name="hobby">
+            <label for="reading">Đọc sách</label>
+            <input type="checkbox" id="surfInternet" name="hobby">
+            <label for="surfInternet">Lướt web</label>
+            <input type="checkbox" id="playGame" name="hobby">
+            <label for="playGame">Chơi game</label>
+            <input type="checkbox" id="watchMovie" name="hobby">
+            <label for="watchMovie">Điện ảnh</label>
+            <input type="checkbox" id="travel" name="hobby">
+            <label for="travel">Du lịch</label><br>
+        </span>
+        <br>
+        <button class="button">Gửi thông tin</button>
+        <button class="button">Nhập lại</button>
+        <p id="result"></p>
+        
+    </form>
+    <script>
+        function displayResult(event) {
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const hobby = document.querySelector('input[name="hobby"]:checked');
+            const hobbyValue = hobby ? hobby.id : "Không xác định";
+
+            const resultMessage = `Tên: ${name}<br>Email: ${email}<br>Giới tính: ${hobbyValue}`;
+
+            document.getElementById("result").innerHTML = resultMessage;
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

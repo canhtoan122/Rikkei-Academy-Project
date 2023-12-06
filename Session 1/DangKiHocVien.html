@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sở thích của bạn</title>
+    
+    <style>
+        body{
+            background-color: rgb(255, 253, 169);
+        }
+        .head{
+            text-align: center;
+            background-color: greenyellow;
+        }
+        .name{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <i><b><h1>Đăng kí học viên</h1></b></i>
+    </div>
+    <form onsubmit="displayResult(event)">
+        <span>
+            <label htmlFor="name">Họ và tên</label>
+            <input type="text" name="name" id="name"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="dateOfBirth">Ngày sinh</label>
+            <input type="text" name="dateOfBirth" id="dateOfBirth"><br>
+        </span>
+        <span>
+            <br>
+                <label htmlFor="gender">Giới tính</label>
+                <br>
+                <input type="radio" id="male" name="gender">
+                <label for="male">Nam</label>
+                <input type="radio" id="female" name="gender">
+                <label for="female">Nữ</label><br>
+            <br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="address">Địa chỉ</label>
+            <textarea id="address" name="address" rows="4" cols="50"></textarea>
+        </span>
+        <br>
+        <span>
+            <br>
+            <label htmlFor="class">Lớp</label>
+            <select>
+                <option value="choose">-Chọn lớp-</option>
+            </select>
+            <br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" id="email"><br>
+        </span>
+        <br>
+        <span>
+            <label htmlFor="phoneNumber">Điện thoại</label>
+            <input type="text" name="phoneNumber" id="phoneNumber"><br>
+        </span>
+        <br>
+        <button class="button">Đăng kí</button>
+        <button class="button">Nhập lại</button>
+        <p id="result"></p>
+        
+    </form>
+    <script>
+        function displayResult(event) {
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const dateOfBirth = document.getElementById("dateOfBirth").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const address = document.getElementById("address").value;
+            const genderValue = gender ? gender.id : "Không xác định";
+            const classes = document.getElementById("class");
+            const classesOption = classes.options[classes.selectedIndex];
+            const classesValue = classesOption.value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+
+            const resultMessage = `Tên: ${name}<br>Email: ${email}<br>Giới tính: ${genderValue}<br>Lớp: ${classesValue}<br>Số điện thoại: ${phoneNumber}`;
+
+            document.getElementById("result").innerHTML = resultMessage;
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>
