@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <!-- 1. RELATIVE
+        - Khi 1 element có thuộc tính position là relative thì nó sẽ lấy vị trí ban đầu làm gốc
+        - Muốn cân chỉnh khối thì dùng các thuộc tính 
+            1. cách trái: left
+            2. cách phải: right
+            3. cách trên: top
+            4. cách dưới: bottom
+        2. ABSOLUTE
+        - Nó sẽ ăn theo thằng cha chứa nó gần nhất có thuộc tính là position
+        - Nếu không có thằng cha chứa nó thỏa mãn thì ăn theo kích thước màn hình'
+        3. Fixed
+        - Nó sẽ ăn theo kích thước màn hình và khi người dùng scroll xuống thì nó sẽ dính trên màn hình cứng luôn
+        4. Sticky:
+        - Khác với fixed là nó dính cứng còn sticky sẽ ăn theo thuộc tính màn hình
+        5. Flex: 
+        - Dúng để căn chỉnh layout
+        - Để nắm được flex thì đầu tiên nắm:
+            1. Flex-container:
+            Chính là thằng cha chứa các thằng con
+            2. Flex-item:
+            Là các thằng con
+            3. Nắm cho thầy 2 trục:
+            3.1 Trục main-axis: trục chính
+                - Trục main-axis ăn theo thuộc tính justify-content:
+                justify-content: có các giá trị sau
+                1. center
+                2. space-between
+                3. space-around
+                4. space-evenly
+            3.2 Trục cross-axis: trục phụ
+            - 2 trục này luôn luôn vuông góc với nhau
+            4. Thuộc tính flex-direction: Mặc định là row
+            - Khi flex-direction là row thì trục main-axis nằm ngang
+            còn trục cross-axis nằm dọc
+            - Khi flex-direction là column thì trục  main-axis nằm dọc
+            còn trục cross-axis nằm ngang
+     -->
+     <style>
+        .container{
+            position: relative;
+            width: 200px;
+        }
+        .input{
+            width: 100px;
+        }
+        .icon{
+            position: absolute;
+            top: 0;
+            right: 20px;
+        }
+    </style>
+     <form>
+        <div class="container">
+            <label htmlFor="name">Username:</label>
+            <input type="text" name="name" class="input">
+            <div class="icon">
+                <span class="material-symbols-outlined">
+                    visibility
+                </span>
+            </div>
+        </div>
+     </form>
+</body>
+</html>
