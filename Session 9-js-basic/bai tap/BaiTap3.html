@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap 3</title>
+</head>
+<body>
+    <script>
+        // Hàm tính chu vi hình chữ nhật
+        function tinhChuVi(chieuDai, chieuRong) {
+        return 2 * (chieuDai + chieuRong);
+        }
+
+        // Hàm tính diện tích hình chữ nhật
+        function tinhDienTich(chieuDai, chieuRong) {
+        return chieuDai * chieuRong;
+        }
+
+        // Kích thước của hình chữ nhật
+        const chieuDai = 5;
+        const chieuRong = 3;
+
+        // Tính chu vi và diện tích
+        const chuViChuNhat = tinhChuVi(chieuDai, chieuRong);
+        const dienTichChuNhat = tinhDienTich(chieuDai, chieuRong);
+
+        // Hiển thị kết quả
+        console.log(`Chu vi hình chữ nhật là: ${chuViChuNhat}`);
+        console.log(`Diện tích hình chữ nhật là: ${dienTichChuNhat}`);
+        
+        // Hàm tính chu vi hình tròn
+        function tinhChuVi(radius) {
+        return 2 * Math.PI * radius;
+        }
+
+        // Hàm tính diện tích hình tròn
+        function tinhDienTich(radius) {
+        return Math.PI * Math.pow(radius, 2);
+        }
+
+        // Bán kính của hình tròn
+        const radius = 4;
+
+        // Tính chu vi và diện tích
+        const chuViTron = tinhChuVi(radius);
+        const dienTichTron = tinhDienTich(radius);
+
+        // Hiển thị kết quả
+        console.log(`Chu vi hình tròn là: ${chuViTron.toFixed(2)}`);
+        console.log(`Diện tích hình tròn là: ${dienTichTron.toFixed(2)}`);
+    </script>
+</body>
+</html>

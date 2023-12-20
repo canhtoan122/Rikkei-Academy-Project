@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap 2</title>
+</head>
+<body>
+    <script>
+        let firstName = "Academy";
+        let lastName  = "Rikkei";
+        let fullName   = firstName + lastName;
+        document.write(fullName);
+        // .kiểu đơn giản (primitive )
+        //     1. Number   : kiểu số ( số nguyên, số thực,...)
+        let i = 0;
+        //     2. String   : kiểu chữ, text
+        let name = "Rikkei Academy";
+        //     3. Boolean
+        let check = true;
+        //     4. Undefined: Khi khai báo biến mà ko bán giá trị cho nó
+        let x;
+        //     5. null     : Khi khai báo gán giá trị cho nó là null
+        let y = null;
+        //     6. NaN      : Not a number (không phải là số)
+        let comparisonResult = NaN === NaN;
+        // .kiểu phức tạp (reference type): kiểu tham chiếu
+        //     1. Array
+        let numbers = [1, 2, 3, 4, 5];
+        //     2. function
+        function addNumbers(){
+            return numbers[1] + numbers[2];
+        }
+        //     3. Object
+        const number = {
+            text: "1"
+        };
+        console.log(number.text);
+    </script>
+</body>
+</html>
