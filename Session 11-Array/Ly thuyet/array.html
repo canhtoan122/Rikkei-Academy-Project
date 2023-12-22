@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Array: Mảng: Dùng để lưu trữ các giá trị
+        - Giá trị ở đây có thể là mọi kiểu dữ liệu
+        - Các phần tử trong mảng ngăn cách với nhau bởi dấu phẩy
+        1. Các cách khai báo 1 mảng
+            Cách 1: let products=["iphone5", "iphone6"];
+            Cách 2: let numbers= new Array(1,2,5) (tham khảo)
+        2. Đặt tên mảng
+        - Đặt tên có ý nghĩa
+        - Giống quy tắc đặt tên biến
+        3. Length là số phần tử trong mảng
+        4. Các phần tử trong mảng đánh index từ 0
+        5. Lấy phần từ mảng theo index
+
+        CRUD-Với mảng
+        C: CREATE
+        1. push(): thêm phần tử vào vị trí cuối cùng của mảng
+        2. unshift(): thêm phần tử vào vị trí đầu tiên của mảng
+        3. splice(): có thể thêm, sửa, xóa phần tử theo mục đích
+        Có 3 tham số:
+        1. Vị trí
+        2. Số phần từ muốn xóa
+        3. Giá trị phần tử thêm vào
+        R: READ
+        - Hiển thị ra
+        - Dùng vòng lập for; for-in; for-off
+        +for-in: trả về index
+        +for-off: trả về giá trị
+        U: UPDATE
+        - Cập nhật
+        + dùng để update theo vị trí
+        array[index]="Giá trị mới"
+        + dùng splice
+        D: DELETE
+        Xóa: pop(): xóa phần tử cuối cùng
+        shift(): xóa phần tử đầu tiên
+        splice(): Xóa theo vị trí
+        Các phương thức làm việc với chuỗi (text);
+        1. Split(): Cắt chuỗi thành mảng
+        2. join(): gộp các phần tử trong mảng thành chuỗi
+        Các phương thức thêm để làm việc với mảng
+        1.reverse(): đảo ngược phần tử trong mảng
+        2. sort(): sắp xếp các phần tử trong mảng theo bảng mã assci
+        3. indexof() : kiểm tra phần tử có trong mảng hay không
+            - Nếu có trả về vị trí
+            - Nếu không có trả về -1
+        4. include : kiểm tra phần tử có trong mảng hay không
+            - Nếu có trả về true
+            - Nếu không có trả về false
+        5. slice : sao chép ra 1 mảng mới không liên quen đến mảng ban đầu
+     -->
+     <script>
+        let buts=["but bi", "but muc", "but chi"];
+        // for (let abc in buts) {
+        //     console.log("abc", abc);
+        // }
+        for (let abc of buts) {
+            console.log("abc", abc);
+        }
+        buts.splice(0,1, "but da");
+     </script>
+</body>
+</html>
