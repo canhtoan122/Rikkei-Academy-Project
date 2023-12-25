@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // bai tap 1
+        let array = [ 'c', 's', 'c', '2', '6', '1' ];
+        array.reverse();
+        let string = array.join("");
+        document.write(string + "<br>");
+        
+        // Bai tap 2
+        let array2 = [ '2', '4', '5', '4', '6', '8' ];
+        for(let i = 0; i < array2.length - 1; i++){
+            if(array2[i] % 2 == 0){
+                if(array2[i + 1] % 2 == 0){
+                    let temp = "-" + array2[i + 1];
+                    array2[i + 1] = temp;
+                }
+            }
+        }
+        let string2 = array2.join("");
+        document.write(string2 + "<br>");
+        // Bai tap 3
+        let  numbers=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        numbers.sort(function(a, b) {
+            return a - b;
+        });
+        document.write(numbers[numbers.length - 1] + "<br>");
+        // Bai tap 4
+        let input = prompt("Hãy nhập 1 dãy chữ hoa và thường: ");
+        let array3 = input.split('');
+        for(let i = 0; i < array3.length; i++){
+            if(array3[i] === array3[i].toUpperCase()){
+                let temp = array3[i].toLowerCase();
+                array3[i] = temp;
+            }else if(array3[i] === array3[i].toLowerCase()){
+                let temp = array3[i].toUpperCase();
+                array3[i] = temp;
+            }
+        }
+        let string3 = array3.join("");
+        document.write(string3 + "<br>");
+        // Bai Tap 5
+        let  numbers2=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        numbers2.sort(function(a, b) {
+            return a - b;
+        });
+        document.write(numbers2 + "<br>");
+    </script>
+</body>
+</html>
