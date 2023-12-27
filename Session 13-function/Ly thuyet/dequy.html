@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Đệ quy là gì?
+        Hàm tự gọi lại chính nó
+     -->
+     <script>
+        /* dùng đệ quy tính giai thừa của 5*/
+        function tinhGiaiThua(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            } else {
+                return n * tinhGiaiThua(n - 1);
+            }
+        }
+
+        // Gọi hàm để tính giai thừa của 5
+        const giaiThuaCua5 = tinhGiaiThua(5);
+        console.log(giaiThuaCua5);
+     </script>
+</body>
+</html>
