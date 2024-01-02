@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+          color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Bai Tap 1
+        function findBiggestNumberWithoutDuplicate(numbers){
+            let biggestNumber;
+            for(let i = 0; i < numbers.length; i++){
+                if(biggestNumber == null){
+                    biggestNumber = numbers[0];
+                }
+                if(numbers.indexOf(numbers[i]) !== numbers.lastIndexOf(numbers[i])){
+                    continue;
+                }else{
+                    if(biggestNumber < numbers[i]){
+                        biggestNumber = numbers[i];
+                    }
+                }
+            }
+            return biggestNumber;
+        }
+        let numbers = [ 1, 2, 3, 5, 5];
+        document.write(findBiggestNumberWithoutDuplicate(numbers) + "<br>");
+        // Bai Tap 2
+        function isPrime(num){
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function multiplePrimeNumber(arr){
+            let result = 0;
+            for(let i = 0; i < arr.length; i++){
+                if(isPrime(arr[i])){
+                    result += arr[i];
+                }
+            }
+            return result;
+        }
+        let arr = [ 9, 2, 3, 7, 1];
+        document.write(multiplePrimeNumber(arr) + "<br>");
+        // Bai Tap 3
+        function createHeart(rows) {
+            for(var row=0;row<=5;row++){
+                for(var col=0;col<=6;col++){
+                    if(( (col%3!=0) && (row == 0) ) || ((col%3==0) && (row == 1))){
+                        document.write("<span class='red'>*</span> &nbsp");
+                    }else if(row - col == 2 || row + col == 8){
+                        document.write("<span class='red'>*</span> &nbsp");
+                    }
+                    else{
+                        document.write("&nbsp &nbsp");
+                    }
+                }
+                document.write("<br>");
+            }	
+        }
+
+        createHeart(4);
+        // Bai Tap 4
+        function checkNumber(str) {
+            let arr = str.split('');
+            for (let i = arr.length - 1; i >= 0; i--) {
+                if (!isNaN(arr[i])) {
+                    arr.splice(i, 1);
+                }
+            }
+
+            let result = arr.join('');
+            return result;
+        }
+
+        let str = "abcdef1234";
+        document.write(checkNumber(str) + "<br>");
+        // Bai Tap 5
+        function reverseWithSpace(str){
+            let arr = str.split(' ');
+            for(let i = 0; i < arr.length; i++){
+                let tempArr = arr[i].split('');
+                console.log(tempArr);
+                tempArr.reverse('');
+                arr[i] = tempArr.join('');
+            }
+            let result = arr.join(' ');
+            return result;
+        }
+        let str2 = "This is an example!";
+        let str3 = "double spaces";
+        document.write(reverseWithSpace(str2));
+    </script>
+</body>
+</html>
