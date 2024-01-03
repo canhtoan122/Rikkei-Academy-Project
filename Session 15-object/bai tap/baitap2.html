@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="addToCart()">Mua</button>
+    <p id="price"></p>
+    <script>
+        let products = [
+            {
+                name:"iphone5",
+                price:50000,
+                id:5
+            },
+            {
+                name:"iphone6",
+                price:60000,
+                id:6
+            },
+            {
+                name:"iphone7",
+                price:70000,
+                id:7
+            },
+            {
+                name:"iphone8",
+                price:80000,
+                id:8
+            }
+        ]
+        let cart=[];
+        function Product(name, price, id){
+            this.name = name;
+            this.price = price;
+            this.id = id;
+        }
+        // Đi mua hàng rồi tính giá tiền phải trả khi mua
+        // Kiểm tra xem sản phẩm đang mua có trong giỏ hàng hay chưa
+            // Nếu có thì tằng số lượng
+            // Nếu không có thì thêm vào giỏ hàng
+        function addToCart(){
+            let valueInput = document.getElementById("input").value;
+            let check = products.find((item, index, array) =>{
+                return item.name == valueInput;
+            });
+            if(check != -1){
+                for(let i = 0; i < products.length; i++){
+
+                    if(products[i].name == valueInput){
+                        cart.put(products[i]);
+                    }
+                }
+                let price = document.getElementById("price");
+                for(let i = 0; i < cart.length; i++){
+                    price += products[i].price;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

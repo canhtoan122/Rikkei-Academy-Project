@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let student = [
+            {
+                name: "hoa",
+                age: 25,
+                id: 12
+            },
+            {
+                name: "hong",
+                age: 25,
+                id: 13
+            },
+            {
+                name: "nhung",
+                age: 25,
+                id: 14
+            },
+            {
+                name: "vân",
+                age: 25,
+                id: 15
+            }
+        ]
+        /*
+            1. Xóa phần từ có id=13
+            2. Thêm thuộc tính address vào đối tượng có id=14
+            3. Cập nhật giá trị thuộc tính name thành "ánh" của đối tượng có id=15
+        */
+        /* Bai tap 1*/
+        for (let i = 0; i < student.length; i++) {
+            if (student[i].id == 13) {
+                student.splice(i, 1);
+            }
+        }
+        // let index = student.indexOf(student.id == 13);
+        // student.splice(index, 1);
+        /* Bai tap 2*/
+        for (let i = 0; i < student.length; i++) {
+            if (student[i].id == 14) {
+                student[i].address = "HN";
+            }
+        }
+        /* Bai Tap 3*/
+        for (let i = 0; i < student.length; i++) {
+            if (student[i].id == 15) {
+                student[i].name = "anh";
+            }
+        }
+        console.log(student);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Tham chiếu tham trị trong object
+     -->
+     <script>
+        let obj1={
+            name:"hoa"
+        }
+        // let obj2=obj1;
+        // Làm thế nào khi thay đổi obj1 mà obj2 ko thay đổi theo
+        // Toán tử spread -dùng để clone project
+        let obj2={...obj1};
+        obj1.name = "hong";
+        console.log(obj2.name);
+     </script>
+</body>
+</html>

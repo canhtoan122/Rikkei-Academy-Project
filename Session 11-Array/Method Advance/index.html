@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Các phương thức làm việc với mảng:
+        giúp cho code nhanh, gọn gàng hơn
+        ==> bản chất dùng for có thể sử lí hết vấn đề nhưng nó dài dòng hơn.
+        -Khi đọc cái hàm này thì nhớ 
+        1. Đầu vào
+        2. Đầu ra (kết quả trả về của hàm).
+
+        1. Filter (lọc)
+        - Kết quả trả về là 1 cái mảng
+        + Nếu thỏa mãn điều kiện chứa phần tử 
+        + Nếu không thỏa mãn thì mảng rỗng
+        + Trả về 1 mảng mới
+        2. map
+        + tạo ra 1 mảng mới
+        + số lượng phần tử trong mảng bằng số lượng phần tử mảng ban đầu
+        3. forEach
+        + Không tạo ra mảng mới
+        + Không nhận return
+        + Tương tác trực tiếp với các phần tử mảng ban đầu
+        4. find
+        + Tìm kiếm phần tử thỏa mãn và trả về phần tử đó
+        + Nếu không thỏa mãn sẽ trả về undefined
+        5. findIndex
+        + Trả về vị trí
+        + Không thỏa mãn trả về -1
+        6. some
+        + Trả về true nếu 1 phần tử thỏa mãn điều kiện
+        7. every
+        + Tất cả phải thỏa mãn điều kiện
+        8. reduce hàm dùng để tính toán
+        ....
+     -->
+     <script>
+        let student =[
+            {
+                name:"Hoa",
+                id:11,
+                age:25
+            },
+            {
+                name:"hong",
+                id: 31,
+                age:30
+            }
+        ]
+        // let result = student.find((item, index, array) =>{
+        //     return item.id == 31
+        // });
+        // let result = student.every((item, index, array) =>{
+        //     return item.age > 29
+        // });
+        let numbers = [5, 6, 7, 8, 9, 1];
+        // lọc những phần tử lớn hơn 5
+        // let result = numbers.filter((item, index, array) => {
+        //     // console.log("item", item);
+        //     // console.log("index", index);
+        //     // console.log("array", array);
+        //     // console.log("*************");
+        //     return item>5
+        // });
+        // let result = numbers.map((item, index, array)=>{
+        //     return 5
+        // });
+        // numbers.forEach((item, index, array) => {
+        //     numbers[index] = item*2
+        // });
+        let result = numbers.reduce((accumulator, itemValue, index) => {
+            return accumulator+itemValue
+        }, 0)
+        console.log(result);
+     </script>
+</body>
+</html>
