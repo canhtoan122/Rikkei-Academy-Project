@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Attribute: thuộc tính
+        -Muốn tương tác với thuộc tính đầu tiên phải lấy element ra mới tương tác được
+        -Thuộc tính classList trong đối tượng
+        classList là danh sách tất cả những class của element (đối tượng)
+        + Các phương thức dùng trong classList
+        1. add(tên class) thêm class vào cho đối tượng
+        2. remove("tên class") xóa tên class
+        3. toggle (như công tắc): có class thì xóa đi không có thì thêm vào
+        4. contain: kiểm tra xem đối tượng có class đấy không?
+        ==> kết quả về là true || false
+
+        setAttribute: thêm thuộc tính
+     -->
+     <div>
+        Lorem ipsum dolor sit amet.
+    </div>
+     <script>
+        let element = document.getElementsByTagName("div");
+        element[0].setAttribute("test", 1);
+     </script>
+</body>
+</html>
