@@ -6,6 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- 
+        Event là các sự kiện tương tác như bàn phím, nhấp chuột click,...
+
+     -->
+     <!-- <button onclick="alert('Xin chào!')">click</button> -->
+     <button id="btn">click</button>
+     <script>
+        let btn = document.getElementById("btn").addEventListener("click", ()=>{
+            alert('Xin chào!')
+        })
+        document.getElementsByTagName("body")[0].addEventListener("keypress", (event) => {
+            console.log(event.keyCode);
+        })
+     </script>
 </body>
 </html>

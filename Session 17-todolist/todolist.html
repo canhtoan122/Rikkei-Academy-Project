@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="job">
+    <button onclick="addJob()">add</button>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Trạng thái</th>
+                <th>Tên công việc</th>
+                <th>X</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            
+        </tbody>
+    </table>
+    <!-- 
+        Bước 1: Tạo giao diện khi nhấn nút add gọi hàm thêm công việc
+        Bước 2: Tạo 1 đối tượng để lưu thông tin 1 công việc
+        tại vì công việc nó sẽ gồm các thuộc tính
+        tên công việc: để hiển thị
+        id: công việc: thêm, sửa, xóa, thông tin công việc dựa vào id
+        Bước 2: Tạo 1 mảng lưu thông tin tất cả các đối tượng
+        Bước 3: Khi nhấn nút add push thông tin của đối tượng vào mảng rồi hiển thị
+     -->
+     <script>
+        let jobs = [];
+        function uuid(){
+            return Math.floor(Math.random()*999999) + new Date().getMilliseconds();
+        }
+        /*
+            Math.random(): tạo 1 số ngẫu nhiên từ 0<=X<1
+            * với 999999 sẽ tạo ra 1 số ngẫu nhiên 
+            Math.floor làm tròn xuống vd 19.4 sẽ lấy 19
+            new Date().getMilliseconds(): lấy thời tính bằng milis (1000ms = 1s)
+        */
+        function addJob(){
+            let job = document.getElementById("job").value;
+            let objInfo = {
+                name:job,
+                id: uuid(),
+                status:false
+            }
+            jobs.push(objInfo);
+            renderJobs();
+        }
+        function renderJobs(){
+            let html = "";
+            for (let i = 0; i < jobs.length; i++) {
+                if(!jobs[i].status){
+                    html +=
+                    `
+                    <tr>
+                        <th>${i+1}</th>
+                        <th><input onclick=clickInput(${jobs[i].id}) type="checkbox">
+                        <th>${jobs[i].name}</th>
+                        <th><input onclick=deleteInput(${jobs[i].id}) type="checkbox"></th>
+                    </tr>
+                    `
+                }
+            }
+            document.getElementById("tbody").innerHTML=html;
+        }
+        function clickInput(id){
+            for (let i = 0; i < jobs.length; i++) {
+                if(jobs[i].id == id){
+                    jobs[i].status =! jobs[i].status;
+                    console.log(jobs[i].status);
+                    renderJobs();
+                    break;
+                }
+            }
+        }
+        function deleteInput(id){
+            let deleteConfirm = confirm("Bạn có muốn xóa hay ko?");
+            if(!deleteConfirm){
+                return;
+            }
+            let index = jobs.findIndex((item) => {
+                return item.id == id;
+            })
+            jobs.splice(index, 1);
+            renderJobs();
+        }
+     </script>
+</body>
+</html>
