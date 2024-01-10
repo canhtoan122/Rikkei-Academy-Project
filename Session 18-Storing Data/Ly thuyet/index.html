@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Storing data in the browser</h1>
+    <!-- 
+        Storing data in the browser
+        (lưu trữ dữ liệu phía client - browser);
+        1. localstorage
+        - Dữ liệu khi lưu sẽ không bị mất đi
+        - Dung lượng dữ liệu lưu được 5-10MB
+        1MB = 1024kb;
+        2. sessionstorage
+        - Phiên làm việc tức là dữ liệu sẽ bị mất đi khi đóng tab
+        - Dung lượng tầm 3-5MB
+        3. cookie
+        - Dung lượng tầm 3-5 kb
+        - Thường lưu token từ server trả về để duy trì đăng nhập, thực hiện các tác vụ 
+        - Có thể set thời gian sống cho nó.
+
+        Khi lưu dữ liệu dang array hoặc object thì phải chuyển sang dạng JSON để lưu
+     -->
+     <script>
+        // lưu trữ dữ liệu
+        // lưu là set lấy về là get
+        // localStorage.setItem("chung", "tuấn anh");
+        // let result = localStorage.getItem("chung");
+        // console.log(result);
+        // localStorage.setItem("chung", "minh anh");
+        // localStorage.removeItem("chung");
+        // localStorage.clear();
+        // sessionStorage.setItem("age", 20);
+        let obj = {
+            name: "chung"
+        }
+        localStorage.setItem("student", JSON.stringify(obj));
+        let result = JSON.parse(localStorage.getItem("student"));
+
+     </script>
+</body>
+</html>

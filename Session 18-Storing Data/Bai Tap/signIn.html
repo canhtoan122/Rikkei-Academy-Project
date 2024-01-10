@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="username">
+    <input type="text" id="password">
+    <button onclick="signIn()">Đăng kí</button>
+    <p id="result"></p>
+    <!-- 
+        Thực hành làm đăng kí đăng nhập lưu ở local-storage
+        Taoj 1 mangr lưu thông tin đăng kí
+     -->
+    <script>
+        let users = JSON.parse(localStorage.getItem("user")) ?? [];
+        function signIn(){
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let check = [JSON.parse(localStorage.getItem("user"))];
+            if(check[0] == null && check.length <= 1){
+                createNewUser(username, password);
+                return;
+            }
+            for(let i = 0; i < check.length; i++){
+                if(username == check[i].username){
+                    let result = document.getElementById("result");
+                    result.innerText = "Đăng kí thất bại";
+                    return;
+                }else{
+                    createNewUser(username, password);
+                }
+            }
+        }
+        function createNewUser(username, password){
+            let newUser = {
+                    username: username,
+                    password: password
+                }
+            users.push(newUser);
+            let user = localStorage.setItem("user", JSON.stringify(users));
+            let result = document.getElementById("result");
+            result.innerText = "Đăng kí thành công";
+            username.innerText = "";
+            password.innerText = "";
+        }
+    </script>
+</body>
+</html>
