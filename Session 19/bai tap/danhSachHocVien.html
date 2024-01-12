@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div class="title"><h1>Danh sách học viên</h1></div>
+        <div class="search">
+            <h1>Tìm kiếm tên học viên</h1>
+            <input type="text" id="search">
+            <button onclick="search()">Tìm kiếm</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>Điện Thoại</th>
+                    <th>Địa Chỉ</th>
+                    <th>Gender</th>
+                    <th>Hành Động</th>
+                    <th><button onclick="sortByName()">Sắp xếp (alpha B)</button></th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </form>
+    <script>
+        renderStudents();
+        function renderStudents(){
+            let students = JSON.parse(localStorage.getItem("student")) || [];
+            if(students[0] == null) return;
+            let html = "";
+            for (let i = 0; i < students.length; i++) {
+                if(!students[i].status){
+                    html +=
+                    `
+                    <tr>
+                        <th>${i+1}</th>
+                        <th>${students[i].name}</th>
+                        <th>${students[i].email}</th>
+                        <th>${students[i].phone}</th>
+                        <th>${students[i].country}</th>
+                        <th>${students[i].gender}</th>
+                        <th><button onclick="editItem(${students[i].name}, event)">Edit</button></th>
+                        <th><button onclick="deleteItem(${students[i].name}, event)">Delete</button></th>
+                    </tr>
+                    `
+                }
+            }
+            document.getElementById("tbody").innerHTML=html;
+        }
+        function deleteItem(name, e){
+            e.preventDefault();
+            let students = JSON.parse(localStorage.getItem("student")) || [];
+            let result = students.findIndex((item, index, array) =>{
+                return item.name == name;
+            });
+            students.splice(result, 1);
+            localStorage.clear();
+            localStorage.setItem("student", JSON.stringify(students));
+            renderStudents();
+        }
+        function editItem(name, e){
+            e.preventDefault();
+            let students = JSON.parse(localStorage.getItem("student")) || [];
+            let result = students.findIndex((item, index, array) =>{
+                return item.name == name;
+            });
+            students[result].isEditing = true;
+            window.location.href = "thongTinHocVien.html";
+        }
+    </script>
+</body>
+</html>

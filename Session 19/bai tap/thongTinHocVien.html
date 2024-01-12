@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <div class="title">
+            <h1>Thông tin học viên</h1>
+        </div>
+        <div class="container">
+            <div class="name">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" placeholder="vui lòng nhập tên">
+            </div>
+            <br>
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="vui lòng nhập email">
+            </div>
+            <br>
+            <div class="phone">
+                <label for="phone">Số Điện Thoại:</label>
+                <input type="text" id="phone" placeholder="vui lòng nhập số điện thoại">
+            </div>
+            <br>
+            <div class="country">
+                <label for="country">Quê quán:</label>
+                <input type="text" id="country" placeholder="vui lòng nhập địa chỉ quê quán">
+            </div>
+            <br>
+            <div class="gender">
+                <label for="gender">Giới tính:</label>
+                <input type="radio" name="gender" id="gender" value="nam">
+                <label for="gender">Nam</label>
+                <input type="radio" name="gender" id="gender" value="nữ">
+                <label for="gender">Nữ</label><br>
+            </div>
+            <br>
+            <button onclick="Save(event)">Lưu lại</button>
+        </div>
+    </form>
+    <script>
+        class Student{
+            constructor(name, email, phone, country, gender, isEditing){
+                this.name = name;
+                this.email = email;
+                this.phone = phone;
+                this.country = country;
+                this.gender = gender;
+                this.isEditing = isEditing;
+            }
+            addStudent(students){
+                students.push(this);
+            }
+            editStudent(){
+
+            }
+        }
+        function Save(e){
+            e.preventDefault();
+            let students = JSON.parse(localStorage.getItem("student")) || [];
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let country = document.getElementById("country").value;
+            let gender = document.querySelector('input[name="gender"]:checked').value;
+            let isEditing = false;
+
+            let student = new Student(name, email, phone, country, gender, isEditing);
+            if(students[0] == null){
+                student.addStudent(students);
+                localStorage.setItem("student", JSON.stringify(students));
+            }
+            else{
+                for(let i = 0; i < students.length; i++){
+                    if(students[i] != null && students[i].isEditing == true){
+                        name.innerHTML = students[i].name;
+                        email.innerHTML = students[i].email;
+                        phone.innerHTML = students[i].phone;
+                        country.innerHTML = students[i].country;
+                        console.log(true);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
