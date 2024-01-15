@@ -95,6 +95,8 @@
         </div>
     </form>
     <script>
+        let isEditing = false;
+        renderStudent();
         class Student{
             constructor(name, email, phone, country, gender, isEditing){
                 this.name = name;
@@ -107,8 +109,27 @@
             addStudent(students){
                 students.push(this);
             }
-            editStudent(){
-
+            editStudent(students, index){
+                students[index].name = document.getElementById("name").value;
+                students[index].email = document.getElementById("email").value;
+                students[index].phone = document.getElementById("phone").value;
+                students[index].country = document.getElementById("country").value;
+                students[index].gender = document.querySelector('input[name="gender"]:checked').value;
+            }
+        }
+        function renderStudent(){
+            let students = JSON.parse(localStorage.getItem("student")) || [];
+            if(students[0] != null){
+                let check = students.findIndex((item, index, array) =>{
+                    return item.isEditing == true;
+                });
+                if(check != -1){
+                    isEditing = true;
+                    document.getElementById("name").value = students[check].name;
+                    document.getElementById("email").value = students[check].email;
+                    document.getElementById("phone").value = students[check].phone;
+                    document.getElementById("country").value = students[check].country;
+                }
             }
         }
         function Save(e){
@@ -119,24 +140,23 @@
             let phone = document.getElementById("phone").value;
             let country = document.getElementById("country").value;
             let gender = document.querySelector('input[name="gender"]:checked').value;
-            let isEditing = false;
 
             let student = new Student(name, email, phone, country, gender, isEditing);
-            if(students[0] == null){
+            console.log(isEditing);
+            if(students[0] != null && isEditing != false){
+                let index = students.findIndex((item, index, array) =>{
+                    return item.isEditing == true;
+                });
+                student.editStudent(students, index);
+                localStorage.setItem("student", JSON.stringify(students));
+                isEditing = false;
+                window.location.href = "danhSachHocVien.html";
+            }
+            else{
                 student.addStudent(students);
                 localStorage.setItem("student", JSON.stringify(students));
             }
-            else{
-                for(let i = 0; i < students.length; i++){
-                    if(students[i] != null && students[i].isEditing == true){
-                        name.innerHTML = students[i].name;
-                        email.innerHTML = students[i].email;
-                        phone.innerHTML = students[i].phone;
-                        country.innerHTML = students[i].country;
-                        console.log(true);
-                    }
-                }
-            }
+
         }
     </script>
 </body>
