@@ -85,12 +85,12 @@
     </style>
 </head>
 <body>
-    <form>
+    <form id="studentList">
         <div class="title"><h1>Danh sách học viên</h1></div>
         <div class="search">
             <h1>Tìm kiếm tên học viên</h1>
             <input type="text" id="search">
-            <button onclick="search(event)">Tìm kiếm</button>
+            <button onclick="searchItem()">Tìm kiếm</button>
         </div>
         <table>
             <thead>
@@ -111,31 +111,33 @@
         </table>
     </form>
     <script>
-        renderStudents();
-        function renderStudents(){
-            let students = JSON.parse(localStorage.getItem("student")) || [];
-            if(students[0] == null) return;
+        document.getElementById("studentList").addEventListener('submit', function (event){
+            event.preventDefault();
+        })
+        let students = JSON.parse(localStorage.getItem("student")) || [];
+        renderStudents(students);
+        function renderStudents(array){
             let html = "";
-            for (let i = 0; i < students.length; i++) {
-                if(!students[i].status){
+            for (let i = 0; i < array.length; i++) {
+                if(!array[i].status){
                     html +=
                     `
                     <tr>
                         <th>${i+1}</th>
-                        <th>${students[i].name}</th>
-                        <th>${students[i].email}</th>
-                        <th>${students[i].phone}</th>
-                        <th>${students[i].country}</th>
-                        <th>${students[i].gender}</th>
-                        <th><button onclick="editItem(${students[i].name}, event)">Edit</button></th>
-                        <th><button onclick="deleteItem(${students[i].name}, event)">Delete</button></th>
+                        <th>${array[i].name}</th>
+                        <th>${array[i].email}</th>
+                        <th>${array[i].phone}</th>
+                        <th>${array[i].country}</th>
+                        <th>${array[i].gender}</th>
+                        <th><button onclick="editItem(${array[i].name})">Edit</button></th>
+                        <th><button onclick="deleteItem('${array[i].name}')">Delete</button></th>
                     </tr>
                     `
                 }
             }
             document.getElementById("tbody").innerHTML=html;
         }
-        function deleteItem(name, e){
+        function deleteItem(name){
             let students = JSON.parse(localStorage.getItem("student")) || [];
             let result = students.findIndex((item, index, array) =>{
                 return item.name == name;
@@ -143,7 +145,7 @@
             students.splice(result, 1);
             localStorage.clear();
             localStorage.setItem("student", JSON.stringify(students));
-            renderStudents();
+            renderStudents(students);
         }
         function editItem(name){
             let students = JSON.parse(localStorage.getItem("student")) || [];
@@ -169,36 +171,23 @@
             });
             localStorage.clear();
             localStorage.setItem("student", JSON.stringify(students));
-            renderStudents();
+            renderStudents(students);
         }
-        function search(){
+        function searchItem()
+        {
             let students = JSON.parse(localStorage.getItem("student")) || [];
             let searchList = [];
             let searchInput = document.getElementById("search").value;
+            let result = students.filter((item, index, array) => {
+                return item.name.startsWith(searchInput);
+            });
+            
             for (let i = 0; i < students.length; i++) {
                 if(students[i].name == searchInput){
                     searchList.push(students[i]);
                 }
             }
-            let html = "";
-            for (let i = 0; i < searchList.length; i++) {
-                if(!searchList[i].status){
-                    html +=
-                    `
-                    <tr>
-                        <th>${i+1}</th>
-                        <th>${searchList[i].name}</th>
-                        <th>${searchList[i].email}</th>
-                        <th>${searchList[i].phone}</th>
-                        <th>${searchList[i].country}</th>
-                        <th>${searchList[i].gender}</th>
-                        <th><button onclick="editItem(${searchList[i].name}, event)">Edit</button></th>
-                        <th><button onclick="deleteItem(${searchList[i].name}, event)">Delete</button></th>
-                    </tr>
-                    `
-                }
-            }
-            document.getElementById("tbody").innerHTML=html;
+            renderStudents(result);
         }
     </script>
 </body>
