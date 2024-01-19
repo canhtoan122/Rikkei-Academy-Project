@@ -11,20 +11,28 @@
 <body>
     <div class="container">
         <h1>Shopping Cart</h1>
-        <div class="cartList">
-            <div class="cart-item">
-                <h2>Item Name 1</h2>
-                <p>Description of Item 1.</p>
-                <div class="price">$10.00</div>
-            </div>
-            <div class="cart-item">
-                <h2>Item Name 2</h2>
-                <p>Description of Item 2.</p>
-                <div class="price">$15.00</div>
-            </div>
+        <div class="cartList" id="cartList">
             <!-- Add more items as needed -->
         </div>
     </div>
+    <script>
+        let items = JSON.parse(localStorage.getItem("item")) || [];
+        renderCartItem(items);
+        function renderCartItem(array) {
+            let html = "";
+            for (let i = 0; i < array.length; i++) {
+                html +=
+                    `
+                    <div class="cart-item">
+                        <h2>${array[i].name}</h2>
+                        <p>${array[i].description}</p>
+                        <div class="price">${array[i].price}</div>
+                    </div>
+                    `
+            }
+            document.getElementById("cartList").innerHTML = html;
+        }
+    </script>
 </body>
 
 </html>
