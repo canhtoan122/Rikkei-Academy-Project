@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Toán tử spread
+     -->
+     <script>
+        let obj1 ={
+            name: "hoa",
+            age: 25,
+        }
+        let obj2=obj1;
+        obj1.name="hong";
+        console.log("obj2",obj2);
+        // dùng toán tử ... để clone ra một ô hoàn toàn mới
+        let obj3 ={
+            name: "hoa",
+            age: 25,
+        }
+        let obj4 = {...obj3}
+        obj3.name="hong";
+    </script>
+</body>
+</html>
