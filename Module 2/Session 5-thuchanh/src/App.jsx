@@ -8,6 +8,17 @@ function App() {
 
   return (
     <>
+    {/*
+      Làm bài tập todo List
+      Thêm, sửa, xóa công việc
+      
+      Các bước làm:
+      Bước 1: Tạo mảng lưu giá trị
+      Bước 2: Tạo và lấy giá trị của ô input
+      Bước 3: Đưa giá trị của ô input vào mảng
+      Bước 4: Dùng map để render giá trị của mảng chứa giá trị danh sách công việc
+      Bước 5: Thêm các button sửa xóa của giá trị
+     */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
