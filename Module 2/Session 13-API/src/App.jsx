@@ -10,6 +10,7 @@ export default function App() {
     <div>
       App
       {/*
+        // npm install -g json-server@0.17.4
         Khi lưu dữ liệu trên json-server thì phải thực hiện được 
         CRUD (thêm mới thông tin, lấy thông tin, update thông tin, xóa dữ liệu)
         để làm việc với json-server có 2 cách 

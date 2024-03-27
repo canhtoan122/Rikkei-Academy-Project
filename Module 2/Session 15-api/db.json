@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Hong Van"
+    },
+    {
+      "name": "Minh Vũ",
+      "id": 3
+    },
+    {
+      "email": "nguyencanhtoan200@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 6
+    },
+    {
+      "name": "lan anh",
+      "id": 7
+    },
+    {
+      "name": "Vân Anh",
+      "id": 8
+    },
+    {
+      "name": "Vân Anh",
+      "id": 9
+    }
+  ],
+  "product": []
+}
