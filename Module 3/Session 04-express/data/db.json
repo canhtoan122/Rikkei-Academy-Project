@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "name": "Hồng Vân",
+            "id": 51,
+            "address": "Sài Gòn"
+        },
+        {
+            "name": "Tuyết Anh",
+            "id": 68,
+            "address": "Hà Nội"
+        },
+        {
+            "name": "Minh Phương",
+            "id": 92,
+            "address": "hà Nội"
+        }
+    ]
+}
