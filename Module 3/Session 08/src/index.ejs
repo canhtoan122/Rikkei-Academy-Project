@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Nội dung bài học:
+        1. Tạo/Xóa cơ sở dữ liệu
+        - Câu lệnh tạo database
+        CREATE DATABASE js231127_db;
+        - Câu lệnh xóa database
+        DROP DATABASE js231127_db;
+        - Cú pháp chỉ định sử dụng database nào trong server
+        USE js231127_db;
+        2. Các kiểu dữ liệu
+        https://lanit.com.vn/wp-content/uploads/2022/06/cac-kieu-du-lieu-trong-mysql-05.jpg
+        3. Tạo bảng
+        CREATE TABLE customers(
+            customer_id int not null auto_increment,
+            customer_name varchar(100) not null,
+            address varchar(255) null,
+            city varchar(255) null,
+            postal_code varchar(25) not null,
+            country varchar(255) null,
+            primary key(customer_id)
+        )
+        4. Thao tác với bảng
+        - CREATE -> Thêm mới dữ liệu
+        INSERT INTO customers(customer_name, address, city, postal_code, country) 
+        values ("Nguyễn Văn A", "Thanh Xuân, Hà Nội", "Hà Nội", "100000", "Hoài Đức"),
+        ("Nguyễn Văn B", "Hà Đông, Hà Nội", "Hà Nội", "100000", "Hà Đông"),
+        ("Nguyễn Văn C", "Cầu Giấy, Hà Nội", "Hà Nội", "100000", "Cầu Giấy");
+        - READ -> Đọc tất cả dữ liệu
+        SELECT * FROM customers;
+        - Lấy từng trường trong bảng
+        SELECT customer_id, customer_name, address FROM customers;
+        - Lấy bản ghi theo điều kiện
+        SELECT customer_id, customer_name, address FROM customers
+        WHERE customer_name = "Nguyễn Văn B";
+        - Lấy bản ghi theo nhiều điều kiện - Toán tử AND
+        SELECT customer_id, customer_name, address FROM customers
+        WHERE customer_name = "Nguyễn Văn A" AND customer_id= 2;
+        - Lấy bản ghi theo nhiều điều kiện - Toán tử OR
+        SELECT customer_id, customer_name, address FROM customers
+        WHERE customer_name = "Nguyễn Văn B" OR customer_id= 2;
+        - UPDATE - Cập nhật dữ liệu theo điều kiện
+        UPDATE customers
+        SET customer_name= "Trần Văn B", address= "Hoài Đức, Hà Nội" - Dữ liệu mới cần cập nhật
+        WHERE customer_id = 2; - id của bản ghi cần cập nhật
+        - DELETE - Xóa 1 bản ghi theo id
+        DELETE FROM customers -- Xác định tên bảng cần xóa
+        WHERE customer_id = 1;
+        - DELETE - Xóa tất cả bản ghi trong bảng
+        DELETE FROM customers -- Xác định tên bảng cần xóa => Tấn công SQL Injection
+        WHERE 1=1;
+        5. Điều kiện
+        6. Tìm kiếm dữ liệu
+        SELECT * FROM customers
+        WHERE customer_name like "%c%";
+        7. Sắp xếp và phân trang
+        NSERT INTO customers (customer_name, address, city, postal_code, country) VALUES
+        ('Alfreds Futterkiste',  'Obere Str. 57', 'Berlin', '12209', 'Germany'),
+        ('Berglunds snabbköp', 'Berguvsvägen 8', 'Luleå', 'S-958 22', 'Sweden'),
+        ('Centro comercial Moctezuma', 'Sierras de Granada 9993', 'México D.F.', '05022', 'Mexico'),
+        ('Ernst Handel', 'Kirchgasse 6', 'Graz', '8010', 'Austria'),
+        ('Island Trading', 'Garden House Crowther Way', 'Cowes', 'PO31 7PJ', 'UK'),
+        ('Laughing Bacchus Winecellars', '1900 Oak St.', 'Vancouver', 'V3F 2K1', 'Canada'),
+        ('Magazzini Alimentari Riuniti', 'Via Ludovico il Moro 22', 'Bergamo', '24100', 'Italy'),
+        ('North/South','South House 300 Queensbridge', 'London', 'SW7 1RZ', 'UK'),
+        ('Paris spécialités', '265, boulevard Charonne', 'Paris', '75012', 'France'),
+        ('Rattlesnake Canyon Grocery','2817 Milton Dr.', 'Albuquerque', '87110', 'USA'),
+        ('Simons bistro', 'Vinbæltet 34', 'København', '1734', 'Denmark'),
+        ('The Big Cheese', '89 Jefferson Way Suite 2', 'Portland', '97201', 'USA'),
+        ('Vaffeljernet', 'Smagsloget 45', 'Århus', '8200', 'Denmark'),
+        ('Wolski Zajazd',  'ul. Filtrowa 68', 'Walla', '01-012', 'Poland'),
+        ('Blauer See Delikatessen', 'Forsterstr. 57', 'Mannheim', '68306', 'Germany'),
+        ('Blondel père et fils', '24, place Kléber', 'Strasbourg', '67000', 'France'),
+        ('Bólido Comidas preparadas', 'C/ Araquil, 67', 'Madrid', '28023', 'Spain'),
+        ('Bon app\'', '12, rue des Bouchers', 'Marseille', '13008', 'France'),
+        ('Bottom-Dollar Marketse', '23 Tsawassen Blvd.', 'Tsawassen', 'T2F 8M4', 'Canada'),
+        ('Cactus Comidas para llevar', 'Cerrito 333', 'Buenos Aires', '1010', 'Argentina');
+
+        - Hiển thị số lượng bản ghi
+        SELECT * FROM customers
+        LIMIT 10 OFFSET 1;
+        8. Gom nhóm dữ liệu
+        9. Tạo chỉ mục cho bảng
+     -->
+</body>
+</html>

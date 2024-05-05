@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user, index) => { %>
+                <tr>
+                    <th scope="row" name="id"><%= index + 1 %></th>
+                    <td name="username"><%= user.username %></td>
+                    <td name="password"><%= user.password %></td>
+                    <input type="hidden" name="id" value="<%= user.id %>">
+                    <td><button type="submit">Delete</button></td>
+                </tr>
+            <% }); %>
+          <!-- 
+            tạo database bằng file db.json 
+            /users: show ra danh sách user
+            tạo file html dùng method post gửi dữ liệu lên 
+            email:
+            password:
+            lưu lại data vào file db.json
+            sau đó render dữ liệu ra
+            -->
+        </tbody>
+    </table>
+</body>
+</html>
