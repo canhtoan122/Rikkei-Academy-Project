@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const router = require("./src/router/user.route.js");
+const router = require("./router/user.route.js");
+const todolist = require("./router/todolist.route.js");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json())
 
 app.use(cors());
 app.use("/", router);
+app.use("/", todolist);
 app.listen(PORT, () =>{
     console.log(`server đang lắng nghe http://localhost:${PORT}`);
 })
