@@ -31,11 +31,11 @@ async function addBook (req, res){
     })
 }
 async function addAuthor (req, res){
-    const { name, description, price } = req.body;
-    const book = await bookService.addBook( name, description, price);
-    console.log(book);
+    const { name, biography } = req.body;
+    const author = await bookService.addAuthor( name, biography);
+    console.log(author);
     res.status(200).json({
-        data: book
+        data: author
     })
 }
 async function updateBook (req, res){

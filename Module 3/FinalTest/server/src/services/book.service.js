@@ -24,7 +24,29 @@ async function addBook( name, description, price) {
         const query = `INSERT INTO books (name, description, price, create_at, updated_at) 
         VALUES ('${name}', '${description}', '${price}', NOW(), NOW());`;
         let result = await database.execute(query);
-        if(result){
+        const query2 = `INSERT INTO book_author (book_id, author_id) 
+        VALUES ('${result[0].insertId}', NULL);`;
+        let result2 = await database.execute(query2);
+        if(result && result2){
+            return "Create Success";
+        }else{
+            return false;
+        }
+    }
+}
+async function addAuthor( name, biography) {
+    let tempName = name.split('');
+    if(name == '' || biography == ''){
+        return "Book cannot be null.";
+    }else{
+        const query = `INSERT INTO books (name, biography) 
+        VALUES ('${name}', '${biography}');`;
+        let result = await database.execute(query);
+        const query2 = `UPDATE book_author
+        SET author_id = '${result[0].insertId}'
+        WHERE id = ${id};`;
+        let result2 = await database.execute(query2);
+        if(result && result2){
             return "Create Success";
         }else{
             return false;
