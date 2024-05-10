@@ -1,0 +1,27 @@
+.create-books-container {
+    margin-bottom: 20px;
+  }
+  
+  .create-books-form {
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .create-books-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .create-books-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .create-books-form button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }

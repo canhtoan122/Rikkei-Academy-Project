@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import './CreateBooks.css';
 
 export default function CreateBooks() {
     let [newBook, setNewBook] = useState({
@@ -37,14 +38,16 @@ export default function CreateBooks() {
         }
     }
     return (
-        <div>
-            <label htmlFor="name">Book name:</label>< br/>
-            <input type="text" onChange={handleNewBookName} placeholder='Book name'/>< br/>
-            <label htmlFor="name">Book description:</label>< br/>
-            <input type="text" onChange={handleNewBookDescription} placeholder='Book description'/>< br/>
-            <label htmlFor="name">Book price:</label>< br/>
-            <input type="text" onChange={handleNewBookPrice} placeholder='Book price'/>< br/>
-            <button onClick={submitNewBook}>+</button>
+        <div className="create-books-container">
+            <form className="create-books-form">
+                <label htmlFor="name">Book name:</label>
+                <input type="text" onChange={handleNewBookName} placeholder='Book name'/>
+                <label htmlFor="description">Book description:</label>
+                <input type="text" onChange={handleNewBookDescription} placeholder='Book description'/>
+                <label htmlFor="price">Book price:</label>
+                <input type="text" onChange={handleNewBookPrice} placeholder='Book price'/>
+                <button onClick={submitNewBook}>Create</button>
+            </form>
         </div>
     )
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 10, 2024 at 02:53 PM
+-- Generation Time: May 10, 2024 at 04:06 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -56,7 +56,9 @@ INSERT INTO `books` (`id`, `name`, `description`, `price`, `create_at`, `updated
 (3, 'toan3', 'toan3', 123, '2024-05-10', '2024-05-10'),
 (4, 'toan4', 'toan4', 123, '2024-05-10', '2024-05-10'),
 (5, 'toan5', 'toan5', 1, '2024-05-10', '2024-05-10'),
-(6, 'toan6', 'toan6', 123, '2024-05-10', '2024-05-10');
+(6, 'toan6', 'toan6', 123, '2024-05-10', '2024-05-10'),
+(7, 'toan0', 'toan0', 122, '2024-05-10', '2024-05-10'),
+(8, 'toan0', 'toan0', 122, '2024-05-10', '2024-05-10');
 
 -- --------------------------------------------------------
 
@@ -66,9 +68,16 @@ INSERT INTO `books` (`id`, `name`, `description`, `price`, `create_at`, `updated
 
 CREATE TABLE `book_author` (
   `id` int NOT NULL,
-  `book_id` int NOT NULL,
-  `author_id` int NOT NULL
+  `book_id` int DEFAULT NULL,
+  `author_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `book_author`
+--
+
+INSERT INTO `book_author` (`id`, `book_id`, `author_id`) VALUES
+(1, 8, NULL);
 
 --
 -- Indexes for dumped tables
@@ -94,13 +103,13 @@ ALTER TABLE `book_author`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `book_author`
 --
 ALTER TABLE `book_author`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
