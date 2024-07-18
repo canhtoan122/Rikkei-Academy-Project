@@ -25,3 +25,25 @@ person1.setLastName = "Lê";
 // person1 được gọi là 1 instance của lớp person
 person1.getFullName();
 console.log("Đối tượng được khởi tạo từ lớp person: ", person1);
+// Tính kế thừa trong OOP
+class User {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    getUser() {
+        return `Name: ${this.name} - Age: ${this.age}`;
+    }
+}
+class Student extends User {
+    constructor(name, age, id) {
+        super(name, age);
+        this.id = id;
+    }
+    getStudent() {
+        return `ID: ${this.id} - Name: ${this.name} - Age: ${this.age}`;
+    }
+}
+const user = new User('Toan', 15);
+const student = new Student(user.name, user.age, "1");
+console.log(student);

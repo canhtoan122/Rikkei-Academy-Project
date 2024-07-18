@@ -24,8 +24,30 @@
          để trạng thái truy cập là private trong một đối tượng không được truy cập
          hoặc tác động từ bên ngoài không nằm trong đối tượng đó
          2. Tính trừu tượng (abstraction):
+         - Che giấu đi các logic bên trong, các class khi kế thừa các class abstraction phải đi triển khai các logic đó.
+         - ĐỐi với abstract class nó khác class bình thường ở đâu?
+          + Là nó không khởi tạo đối tượng được.
+          + Abstract class thì có thể có các thuộc tính và phương thức như class bình thường
+          + Một lớp mà chứa phương thức abstract thì lớp đó bắt buộc phải là abstract
+          + Một lớp khi kế thừa lớp abstract thì bắt buộc phải triển khai tất cả các phương thức abstract trong lớp abstract cha.
+          + Một lớp abstract khi kế thừa một lớp abstract khác thì không cần thiết phải đi implement các phương thức abstract ở trong class đó.
          3. Tính kế thừa (inheritance):
+         - Tính kế thừa thể hiện qua việc 1 class có thể kế thừa từ class khác và thừa hưởng tất cả các thuộc tính, phương thức của class đó.
+         Ngoài ra còn có thể thêm các thuộc tính, phương thức mới và có thể ghi đè các phương thức từ class cha.
+         - Class con không thể kế thừa các thuộc tính private từ class cha
+         - Tính chất kế thừa được thể hiện qua từ khóa "extends"
+         - Kế thừa các thuộc tính thông qua từ khóa "supper()"
+         - Một class con chỉ kế thừa được 1 class cha
+         - Một class cha có thể cho nhiều class con kế thừa
+         - Khi class con kế thừa class cha thì sẽ thừa hưởng các thuộc tính và phương thức của thằng cha (phạm vi public hoặc protected).
+         - Các phương thức khi class con kế thừa từ class cha có thể dùng phương thức hoặc ghi đè phương thức (override || overwrite).
          4. Tính đa hình (polymorphism):
+         5. Interface:
+         Cũng giống như class, nó dùng để khai báo các thuộc tính và phương thức.
+         + Khi 1 class implement 1 interface thì bắt buộc phải triển khai thuộc tính và thuộc tính của interface đó.
+         + Phạm vi truy cập đối với các thuộc tính và phương thức ở trong interface bắt buộc phải là public
+         + Không khởi tạo đối tượng từ interface được
+         + Về quy tắc đặt tên thì nên đặt chữ I viết hoa sau đến interface
         *******
         access modifier: phạm vi truy cập nó thể hiện bởi tính bao đóng hay đóng gói
         (encapsulation)

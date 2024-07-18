@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        JWT: JSON-WEB-TOKEN
+        luồng sử lí đối với JWT
+        Khi user login thành công thì sẽ tạo ra 1 cái mã token
+        Sau khi tạo mã token này xong rồi sẽ trả về cho client
+        Sau khi client nhận được sẽ lưu ở đâu?
+        Lưu localstorage, sessionStorage
+        Tiếp theo mỗi lần ông client gửi request thì gửi kèm token đi cùng 
+        ở thằng server sẽ đi giải mã token này ra xem ông là ai? Ông có quyền gì?
+        ví dụ ở bên server
+        tạo api bình luận
+        /api/v1/comments
+        giả sử user chưa đăng nhập thì không được bình luận 
+        client: khi muốn gọi request 
+        1. dùng phương thức fetch(): có sẵn trong javascript
+        2. axios: thư viện giúp đi gọi API
+        axios.get("http://localhost:8000/api/v1/comments")
+        "headers": "Authorization"
+        ở bên server nó sẽ đi lấy token em gửi lên 
+        req.headers["Authorization"]
+        ==> trả về cái chuỗi "Bearer"
+        .split(" ")[1]
+        verify nó ra.
+        - Khi người khác có được token thì sẽ có thông tin của mình
+        - Cho nên khi mã hóa thông tin ra mã token không nên mã hóa các thông tin nhạy cảm như mật khẩu
+        // hàm check có phải tài khoản admin hay không
+        const checkAdmin = (req, res, next)=>{
+            // đi kiểm tra 
+            nếu không phải role = 1
+            if(role != 1){
+            return res.sendStatus(403)
+            }
+        }
+    -->
+</body>
+</html>
